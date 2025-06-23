@@ -9,9 +9,9 @@ from app.schemas.chat import ChatRequest
 
 router = APIRouter()
 
-# Define sets for intent checking
 GREETINGS = {"hello", "hi", "hey", "yo", "greetings", "good morning", "good afternoon", "good evening"}
-SUMMARY_KEYWORDS = {"resume", "summary", "overview", "cv", "bio", "background", "tell me about hitesh", "who is he"}
+# --- FIX APPLIED HERE: The keyword set is now more precise ---
+SUMMARY_KEYWORDS = {"resume", "summary", "overview", "cv", "bio", "background", "who is hitesh", "who is he", "tell me everything about hitesh"}
 
 @router.post("")
 async def chat(
@@ -20,16 +20,12 @@ async def chat(
 ):
     """
     Handles a chat request with intent-based pre-processing.
-    - Responds to simple greetings directly.
-    - Transforms summary requests into detailed queries for the RAG engine.
-    - Passes all other specific queries to the RAG engine.
     """
     
     user_message = request.message.strip()
     user_message_lower = user_message.lower()
     final_query = user_message
 
-    # --- 1. Check for Greetings ---
     if user_message_lower in GREETINGS:
         async def greeting_generator():
             canned_response = "Hello! I am HiteshBot, an AI assistant for Hitesh Kumar's portfolio. How can I help you with questions about his skills, projects, or experience?"
@@ -37,7 +33,6 @@ async def chat(
             yield f"data: {json.dumps({'type': 'end'})}\n\n"
         return StreamingResponse(greeting_generator(), media_type="text/event-stream")
 
-    # --- 2. Check for Summary/Resume Requests ---
     elif any(keyword in user_message_lower for keyword in SUMMARY_KEYWORDS):
         print("Summary intent detected. Transforming query.")
         final_query = (
@@ -51,7 +46,6 @@ async def chat(
             "Synthesize this information from all available context."
         )
     
-    # --- 3. For all other queries, add chat history for context ---
     elif request.chat_history:
         history_str = "\n".join(
             f"{msg.role}: {msg.content}" 
@@ -60,7 +54,6 @@ async def chat(
         )
         final_query = f"Conversation History:\n{history_str}\n\nUser's Current Question: {user_message}"
 
-    # --- Now, run the query against the engine ---
     response_stream = query_engine.query(final_query)
 
     async def event_generator():
