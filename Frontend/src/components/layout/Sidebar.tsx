@@ -67,8 +67,12 @@ export const Sidebar = ({
         <div className="p-6 border-b border-slate-200/50">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-                <Sparkles className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg overflow-hidden">
+                <img 
+                  src="/lovable-uploads/36903912-7c9d-408f-8dc8-f39bd28a12be.png" 
+                  alt="Hitesh Kumar" 
+                  className="w-8 h-8 rounded-xl object-cover"
+                />
               </div>
               <div>
                 <h1 className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -178,9 +182,13 @@ export const Sidebar = ({
         <div className="p-6 border-t border-slate-200/50 bg-slate-50/50">
           <div className="flex items-center gap-3 mb-4">
             <Avatar className="w-10 h-10">
-              <AvatarFallback className="bg-gradient-to-br from-emerald-500 to-teal-500 text-white font-semibold">
-                H
-              </AvatarFallback>
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/lovable-uploads/36903912-7c9d-408f-8dc8-f39bd28a12be.png" 
+                  alt="Hitesh Kumar"
+                  className="w-8 h-8 rounded-full object-cover"
+                />
+              </div>
             </Avatar>
             <div className="flex-1">
               <p className="font-medium text-slate-800">Hitesh Kumar</p>

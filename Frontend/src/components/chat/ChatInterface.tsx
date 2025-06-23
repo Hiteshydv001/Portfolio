@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -325,7 +324,7 @@ export const ChatInterface = ({ initialMessages = [], onMessagesChange }: ChatIn
       <div className="border-t border-slate-200/50 bg-white/90 backdrop-blur-xl p-6">
         <div className="max-w-4xl mx-auto">
           <form onSubmit={handleSubmit} className="relative">
-            <div className="flex items-end gap-4 p-4 bg-white rounded-3xl border border-slate-200/50 shadow-lg shadow-slate-900/5">
+            <div className="flex items-end gap-4 p-4 bg-white/80 rounded-3xl border border-blue-300 shadow-2xl ring-1 ring-blue-200/40 transition-all duration-200 focus-within:ring-2 focus-within:ring-blue-400/60 relative before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-blue-100/40 before:to-purple-100/30 before:pointer-events-none">
               <Button
                 type="button"
                 variant="ghost"
@@ -342,7 +341,7 @@ export const ChatInterface = ({ initialMessages = [], onMessagesChange }: ChatIn
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type your message..."
                 disabled={isLoading}
-                className="flex-1 border-0 bg-transparent text-slate-800 placeholder:text-slate-400 focus:ring-0 focus:outline-none text-base p-0"
+                className="flex-1 !border-none !bg-transparent text-slate-800 placeholder:text-slate-400 outline-none focus:outline-none ring-0 focus:ring-0 shadow-none focus:shadow-none rounded-3xl"
               />
               
               <div className="flex items-center gap-2">
