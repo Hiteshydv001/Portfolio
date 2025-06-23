@@ -9,7 +9,8 @@ At its core is **HiteshBot**, a custom-built AI assistant trained exclusively on
 
 **Check out the live project here:** [Link to your deployed frontend URL]
 
-![image](https://user-images.githubusercontent.com/88626732/221468636-24835a82-a39c-49f3-80b6-963d1a892b1a.png)
+![image](https://github.com/user-attachments/assets/d97facd3-7b7e-456f-82a2-88a1c433bac0)
+
 
 
 ---
@@ -31,7 +32,8 @@ The AI is designed to be a specialist. It is strictly grounded in the data provi
 
 This project is a full-stack application with a decoupled frontend and backend, containerizing modern AI and web development practices.
 
-![image](https://user-images.githubusercontent.com/88626732/221468670-692b1238-d98c-4876-8800-47b678f5f6e1.png)
+
+
 
 
 ### Backend
@@ -56,4 +58,4 @@ The backend is a robust Python API built to handle the AI logic and data process
 
 ---
 
-Thank you for visiting my portfolio and exploring this project! Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/hitesh-kumar-001/).
+Thank you for visiting my portfolio and exploring this project! Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/hitesh-kumar-aiml/).
