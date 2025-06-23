@@ -1,0 +1,19 @@
+# Web Framework & Server
+fastapi
+uvicorn[standard]
+python-multipart
+
+# LlamaIndex Core & Integrations
+llama-index
+llama-index-llms-gemini
+llama-index-embeddings-gemini
+llama-index-agent-openai
+
+# Agent Tools
+llama-index-tools-duckduckgo
+e2b # <-- THIS IS THE CORRECT, CURRENT E2B PACKAGE
+requests
+
+# Utilities & Config
+python-dotenv
+pydantic-settings

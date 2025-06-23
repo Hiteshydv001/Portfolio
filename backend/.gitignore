@@ -1,0 +1,53 @@
+# Python
+###################
+# Virtual Environment
+venv/
+.venv/
+.env
+.env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Local instance folder
+instance/
+
+# Local data and secrets (NEVER commit your .env file)
+.env
+.env.*.local
+.env.local
+
+# LlamaIndex Cache / Storage
+# We want to commit the 'data' folder, but never the generated cache.
+# The 'cache' folder will be rebuilt on the server.
+backend/cache/
+
+# IDE / Editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db

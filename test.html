@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chat Tester for FastAPI Backend</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+        }
+        #chat-container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        #messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            height: 60vh;
+            border-bottom: 1px solid #ddd;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .ai-message {
+            background-color: #e9ecef;
+            color: #333;
+            align-self: flex-start;
+            white-space: pre-wrap;
+        }
+        #form {
+            display: flex;
+            padding: 15px;
+        }
+        #input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #loading {
+            text-align: center;
+            padding: 10px;
+            display: none;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<div id="chat-container">
+    <div id="messages"></div>
+    <div id="loading">HiteshBot is thinking...</div>
+    <form id="form">
+        <input id="input" autocomplete="off" placeholder="Ask about Hitesh's skills, projects, etc." />
+        <button>Send</button>
+    </form>
+</div>
+
+<script>
+    const form = document.getElementById('form');
+    const input = document.getElementById('input');
+    const messages = document.getElementById('messages');
+    const loading = document.getElementById('loading');
+    
+    const API_URL = 'http://localhost:8000/api/v1/chat';
+
+    let chatHistory = [];
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const userMessage = input.value.trim();
+        if (!userMessage) return;
+
+        addMessage(userMessage, 'user');
+        
+        chatHistory.push({ role: 'user', content: userMessage });
+        input.value = '';
+        loading.style.display = 'block';
+
+        const aiMessageContainer = addMessage('', 'ai');
+        const aiResponseContent = document.createElement('span');
+        aiMessageContainer.appendChild(aiResponseContent);
+
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    message: userMessage,
+                    chat_history: chatHistory
+                }),
+            });
+            
+            if (!response.body) throw new Error("Response has no body.");
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let aiFullResponse = '';
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                const chunk = decoder.decode(value);
+                const lines = chunk.split('\n\n').filter(line => line.trim());
+
+                for (const line of lines) {
+                    if (line.startsWith('data: ')) {
+                        const dataStr = line.substring(6);
+                        try {
+                            const data = JSON.parse(dataStr);
+                            handleStreamData(data, aiMessageContainer, aiResponseContent);
+                            if (data.type === 'text') {
+                                aiFullResponse += data.data;
+                            }
+                        } catch (error) {
+                            console.error('Failed to parse stream data JSON:', dataStr, error);
+                        }
+                    }
+                }
+            }
+
+            chatHistory.push({ role: 'assistant', content: aiFullResponse });
+
+        } catch (error) {
+            console.error('Fetch error:', error);
+            aiResponseContent.textContent = 'Error: Could not connect to the backend. Is it running?';
+            aiResponseContent.style.color = 'red';
+        } finally {
+            loading.style.display = 'none';
+        }
+    });
+
+    function addMessage(text, type) {
+        const messageContainer = document.createElement('div');
+        messageContainer.className = `message ${type}-message`;
+        messageContainer.textContent = text;
+        messages.appendChild(messageContainer);
+        messages.scrollTop = messages.scrollHeight;
+        return messageContainer;
+    }
+
+    // This is the updated function
+    function handleStreamData(data, container, textElement) {
+        // We only care about the 'text' data type for the user display.
+        if (data.type === 'text') {
+            textElement.textContent += data.data;
+        } 
+        // We will now IGNORE data chunks of type 'sources' or 'tools'.
+        // We can still log that the stream ended for debugging.
+        else if (data.type === 'end') {
+            console.log('Stream ended. All sources and other data were ignored by the UI.');
+        }
+    }
+</script>
+
+</body>
+</html>

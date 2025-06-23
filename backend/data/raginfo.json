@@ -1,0 +1,144 @@
+{
+  "personal_info": {
+    "full_name": "Hitesh Kumar",
+    "pronouns": "He/Him",
+    "tagline": "AI/ML Engineer | Generative AI | Machine Learning | Deep Learning | NLP | Computer Vision",
+    "location": "Gurgaon, Haryana, India",
+    "contact": {
+      "email": "hiteshofficial0001@gmail.com",
+      "phone": "+91 7206139480",
+      "linkedin": "https://www.linkedin.com/in/hitesh-kumar-001/",
+      "github": "https://github.com/Hiteshydv001"
+    }
+  },
+  "professional_summary": "Hitesh Kumar is a results-driven and innovative AI/ML Engineer with a deep passion for developing intelligent systems that solve real-world challenges. He possesses strong expertise in Generative AI, Natural Language Processing, and Computer Vision, specializing in the architecture of multi-agent AI systems and AI-powered automation. His technical foundation is built on Python, C++, Java, and SQL, complemented by extensive experience with frameworks like TensorFlow, PyTorch, FastAPI, and Flask. Hitesh is a proven problem-solver, adept at deploying scalable AI models using modern MLOps and cloud technologies, and is committed to continuous learning and collaborative innovation in the field of machine intelligence.",
+  "education": [
+    {
+      "institution": "Chandigarh University",
+      "location": "Mohali, Punjab",
+      "degree": "Bachelor of Engineering in CSE (Artificial Intelligence and Machine Learning)",
+      "dates": "09/2022 – 07/2026",
+      "cgpa": "7.98",
+      "coursework": {
+        "programming": "Algorithms & Data Structures, Operating Systems, Database Management Systems, Networking",
+        "aiml": "Machine Learning, Deep Learning, Natural Language Processing (NLP), Statistical Analysis, Data Mining, Database Management Systems (SQL, NoSQL), Big Data Analytics, Cloud Computing, Computer Vision, Image Processing, Reinforcement Learning, AI Optimization, Information Retrieval, Time Series Analysis"
+      }
+    },
+    {
+        "institution": "Pathfinder Global School",
+        "degree": "Intermediate, Non-medical",
+        "dates": "04/2021 - 03/2022",
+        "grade": "87%"
+    },
+    {
+        "institution": "Pathfinder Global School",
+        "degree": "Matriculation",
+        "dates": "04/2019 - 07/2020",
+        "grade": "91.4%"
+    }
+  ],
+  "employment_and_internships": [
+    {
+      "title": "Project Maintainer",
+      "organization": "Delta Winter of Code (DWOC)",
+      "dates": "Jan 2025 - Mar 2025",
+      "location": "Remote",
+      "description": "Mentored participants and maintained project quality in an open-source initiative by Delta Force, NIT Trichy, designed to foster developer contributions.",
+      "skills": ["Machine Learning", "Deep Learning", "Next.js", "Mentorship"]
+    },
+    {
+      "title": "Project Maintainer",
+      "organization": "JGEC Winter of Code (JWOC)",
+      "dates": "Jan 2025 - Mar 2025",
+      "location": "Remote",
+      "description": "Maintained and mentored for two selected projects: 'Guard AI', an AI-powered proctoring system, and 'LinkedIn-Automation', a tool for automating comment generation and posting.",
+      "skills": ["Selenium", "Artificial Intelligence (AI)", "Machine Learning", "Project Maintenance"]
+    },
+    {
+        "title": "Project Maintainer | Mentor",
+        "organization": "Social Winter of Code (SWOC)",
+        "dates": "Dec 2024 - Mar 2025",
+        "location": "Remote",
+        "description": "Mentored contributors for the 'Guard AI' open-source project, guiding them on feature development and workflow improvements within a collaborative environment.",
+        "skills": ["Mentorship", "Artificial Intelligence (AI)", "Python", "Flask", "Next.js", "MongoDB"]
+    },
+    {
+      "title": "Web Developer",
+      "organization": "African Association of Entrepreneurs",
+      "dates": "Oct 2024 - Jan 2025",
+      "location": "Remote",
+      "description": "Developed and maintained the French version of the organization's website, increasing accessibility for over 15,000 users. Translated and localized more than 50 blog articles, improving user engagement by 20%, and streamlined publishing workflows with WordPress CMS, reducing update times by 30%.",
+      "skills": ["WordPress", "CMS", "Localization", "Web Development"]
+    },
+    {
+      "title": "AI/ML Intern",
+      "organization": "Edunet Foundation (AICTE & SHELL)",
+      "dates": "Nov 2024 - Dec 2024",
+      "location": "Remote",
+      "description": "Built a high-accuracy waste classification model using CNN and YOLO (92% on test data). Deployed a real-time demo with Streamlit, with the project ranking in the top 40 out of over 5000 submissions. Enhanced model inference speed by 25%.",
+      "skills": ["Python", "CNN", "YOLO", "Streamlit", "Machine Learning"]
+    },
+    {
+      "title": "AI Research Volunteer",
+      "organization": "Think Blue Data",
+      "dates": "Sep 2024 - Oct 2024",
+      "location": "Remote (Thailand focus)",
+      "description": "Annotated and curated a dataset of over 10,000 samples for urban planning and building topology AI models. Collaborated on developing AI-driven solutions to support sustainable urban development in Thailand.",
+      "skills": ["Label Studio", "Data Annotation", "AI", "Machine Learning"]
+    },
+    {
+      "title": "Artificial Intelligence Intern",
+      "organization": "CodeClause",
+      "dates": "Sep 2023 - Oct 2023",
+      "location": "Remote",
+      "description": "Developed several machine learning models including a spam classifier, a mask detection system using computer vision, and a personality prediction tool from resumes.",
+      "skills": ["Spam Filtering", "Image Masking", "Personality Testing", "Machine Learning"]
+    }
+  ],
+  "software_projects": [
+    {
+      "name": "Multi-RAG-Agent Tools (JGEC Winter of Code)",
+      "description": "Engineered a Multi-Agent AI system that automates text summarization, article generation, and data sanitization. It features a modular architecture with over five specialized agents, improving workflow efficiency by 40% and achieving 95% automation accuracy.",
+      "tech_stack": ["Python", "Streamlit", "FAISS", "Hugging Face", "Gemini API", "GitHub", "NextJS", "Flask"],
+      "links": {"github": "https://github.com/Hiteshydv001/Multi-agent-RAG-tool", "live_demo": null}
+    },
+    {
+      "name": "LinkedIn Automate Comment (JGEC Winter of Code & DWOC)",
+      "description": "Built an AI-driven automation system for LinkedIn that boosts engagement efficiency by 50%. It processes over 1,000 posts daily using web scraping (Playwright), sentiment analysis, and LLM-based text generation to create and post relevant comments.",
+      "tech_stack": ["Python", "Selenium", "Playwright", "Gemini API", "FastAPI", "Streamlit", "Vercel", "GitHub"],
+      "links": {"github": "https://github.com/Hiteshydv001/LinkedIn-Automate-Comment", "live_demo": null}
+    },
+    {
+      "name": "Guard AI - Remote Proctoring System (JWOC, DWOC, SWOC)",
+      "description": "Developed an open-source AI-powered proctoring system with real-time facial recognition, gaze tracking, and lip movement detection to enhance exam integrity. The system also monitors screen activity and unauthorized device usage.",
+      "tech_stack": ["Python", "FastAPI", "OpenCV", "Machine Learning", "Streamlit", "Vercel", "NextJS"],
+      "links": {"github": "https://github.com/Hiteshydv001/Guard-AI-Designing-Remote-Proctoring-System", "live_demo": "https://hiteshydv001.github.io/Guard-AI-Designing-Remote-Proctoring-System/"}
+    },
+    {
+        "name": "AI Trip Planner Agent",
+        "description": "A modern, AI-powered trip planning web app that generates personalized travel itineraries using natural language prompts. The backend leverages FastAPI and LangChain to orchestrate calls to various APIs like Amadeus and SerpAPI.",
+        "tech_stack": ["LangChain", "Python", "FastAPI", "Amadeus API", "SerpAPI"],
+        "links": {"github": "https://github.com/Hiteshydv001/Travel-Agent", "live_demo": null}
+    },
+    {
+      "name": "Blockchain Land Registry System (Vodafone Idea Foundation)",
+      "description": "Developed a decentralized application using Ethereum and Solidity to create a secure, transparent, and immutable land ownership registry system.",
+      "tech_stack": ["Blockchain", "Ethereum", "Solidity", "Web3.py", "Ganache", "MetaMask"],
+      "links": {"github": "https://github.com/Hiteshydv001/Land-Register-blockchain", "live_demo": null}
+    }
+  ],
+  "research_work": [
+    {
+      "title": "Train Waitlisted Ticket Confirmation Prediction Using Machine Learning",
+      "publication": "Published in IEEE Xplore (ICACCTech 2024)",
+      "date": "Nov 17, 2024",
+      "summary": "Developed a highly accurate machine learning model (96.67%) using LightGBM to predict the confirmation probability of waitlisted train tickets, analyzing historical Indian Railways data to improve travel planning."
+    },
+    {
+      "title": "Weather-Integrated Traffic Routing with Dynamic Speed Prediction",
+      "publication": "Accepted at ICRAAI 2025",
+      "date": "Feb 21-22, 2025",
+      "summary": "Designed novel AI models that integrate real-time weather data into traffic routing algorithms. The system provides dynamic speed predictions and optimizes paths for smart city applications."
+    }
+  ]
+}

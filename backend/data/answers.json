@@ -1,0 +1,32 @@
+{
+  "faqs": [
+    {
+      "question": "What are Hitesh Kumar's primary technical skills?",
+      "answer": "Hitesh's core technical skills are in AI/ML and full-stack development. For AI, he is proficient in Python, TensorFlow, PyTorch, Scikit-learn, and computer vision libraries like OpenCV. He has extensive experience with Generative AI using Hugging Face Transformers and the Gemini API. For development and MLOps, he uses frameworks like FastAPI and Flask, containerization with Docker, CI/CD with GitHub Actions, and cloud platforms like AWS and Azure."
+    },
+    {
+      "question": "What is Hitesh's experience with MLOps and deploying models?",
+      "answer": "Hitesh has hands-on experience in MLOps and model deployment. His skills include model training and tuning, creating automated data pipelines, and deploying models using technologies like FastAPI for serving, Docker for containerization, and cloud services like AWS S3 and SageMaker for hosting and scaling. He also uses tools like MLflow and CI/CD pipelines with GitHub Actions to streamline the deployment process."
+    },
+    {
+      "question": "Can you describe the architecture of the Multi-RAG-Agent Tools project?",
+      "answer": "The Multi-RAG-Agent Tools project was designed with a modular architecture. It consists of more than five specialized AI agents, each responsible for a specific task like summarization, article generation, or data cleaning. These agents communicate and collaborate to process large datasets, which improved workflow efficiency by 40%. The system uses FAISS for efficient similarity search and Streamlit for the user interface."
+    },
+    {
+      "question": "How does the 'Guard AI' proctoring system ensure exam integrity?",
+      "answer": "Guard AI enhances exam integrity through a multi-faceted AI monitoring system. It uses real-time computer vision to perform facial recognition to verify the test-taker's identity, gaze tracking to detect if the user is looking away from the screen for extended periods, and lip movement detection to identify potential communication. It also monitors for unauthorized screen activity and the use of other devices, flagging any suspicious behavior for review."
+    },
+    {
+      "question": "What kind of roles is Hitesh Kumar looking for?",
+      "answer": "Hitesh is actively seeking challenging and impactful roles where he can apply his skills in AI and software development. He is open to positions such as Machine Learning Intern, Software Engineer (with a focus on AI/ML), Data Scientist, Data Analyst, and AI Engineer."
+    },
+    {
+      "question": "What is his experience with open-source contributions?",
+      "answer": "Hitesh is deeply involved in the open-source community. He serves as a Project Maintainer and Mentor for several prestigious programs, including Delta Winter of Code (DWOC), JGEC Winter of Code (JWOC), and Social Winter of Code (SWOC). He maintains projects like Guard AI, guiding and onboarding dozens of contributors to improve the system and add new features."
+    },
+    {
+      "question": "How did Hitesh increase accessibility for the African Association of Entrepreneurs?",
+      "answer": "Hitesh significantly increased accessibility for the African Association of Entrepreneurs by developing and maintaining the French version of their main website. This involved not only technical development but also translating and localizing over 50 articles and reports. This effort made the organization's content available to more than 15,000 French-speaking users."
+    }
+  ]
+}
