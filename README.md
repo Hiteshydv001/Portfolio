@@ -7,7 +7,7 @@ Welcome to the repository for my AI-powered personal portfolio. This project is 
 
 At its core is **HiteshBot**, a custom-built AI assistant trained exclusively on my professional background, projects, and experience. You can ask it complex questions and receive accurate, context-aware answers in real-time.
 
-**Check out the live project here:** [Link to your deployed frontend URL]
+**Check out the live project here:** [https://hitesh-bot-portfolio.vercel.app/]
 
 ![image](https://github.com/user-attachments/assets/d97facd3-7b7e-456f-82a2-88a1c433bac0)
 
