@@ -28,8 +28,8 @@ def init_settings():
     app_settings = AppSettings()
     os.environ["GOOGLE_API_KEY"] = app_settings.google_api_key
 
-    Settings.llm = Gemini(model_name="models/gemini-1.5-flash-latest")
-    Settings.embed_model = GeminiEmbedding(model_name="models/embedding-001")
+    Settings.llm = Gemini(model_name="models/gemini-2.5-flash")
+    Settings.embed_model = GeminiEmbedding(model_name="models/gemini-embedding-001")
     Settings.chunk_size = 1024
     Settings.chunk_overlap = 20
     

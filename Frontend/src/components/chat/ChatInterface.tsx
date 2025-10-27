@@ -112,7 +112,7 @@ export const ChatInterface = ({ initialMessages = [], onMessagesChange }: ChatIn
     streamingMessageRef.current = '';
 
     try {
-      const apiBaseUrl = import.meta.env.VITE_NEXT_PUBLIC_API_BASE_URL || 'https://portfolio-67uz.onrender.com/api/v1';
+      const apiBaseUrl = import.meta.env.VITE_NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1';
       const response = await fetch(`${apiBaseUrl}/chat`, {
         method: 'POST',
         headers: {
@@ -136,7 +136,7 @@ export const ChatInterface = ({ initialMessages = [], onMessagesChange }: ChatIn
         throw new Error('No response body');
       }
 
-      let assistantMessage: Message = {
+      const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
         content: ''
