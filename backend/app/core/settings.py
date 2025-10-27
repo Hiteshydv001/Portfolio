@@ -1,4 +1,5 @@
 import os
+import google.generativeai as genai
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from llama_index.core.settings import Settings
 from llama_index.llms.gemini import Gemini
@@ -27,6 +28,9 @@ def init_settings():
     """Initializes the global LlamaIndex settings for the pure RAG engine."""
     app_settings = AppSettings()
     os.environ["GOOGLE_API_KEY"] = app_settings.google_api_key
+    
+    # Configure the Google Generative AI client globally to use the stable v1 API
+    genai.configure(api_key=app_settings.google_api_key)
 
     Settings.llm = Gemini(model_name="models/gemini-2.5-flash")
     Settings.embed_model = GeminiEmbedding(model_name="models/gemini-embedding-001")
