@@ -10,7 +10,7 @@ interface ChatMessagesProps {
 
 export const ChatMessages = ({ messages, onRegenerate, isLoading }: ChatMessagesProps) => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 will-change-contents">
       {messages.map((message, index) => (
         <ChatMessage 
           key={message.id} 

@@ -35,7 +35,7 @@ export const ChatMessage = ({ message, onRegenerate, showRegenerate }: ChatMessa
   };
   
   return (
-    <div className={`group mb-8 ${isUser ? '' : 'bg-slate-50/50 -mx-6 px-6 py-6 rounded-2xl'}`}>
+    <div className={`group mb-8 ${isUser ? '' : 'bg-slate-50/50 -mx-6 px-6 py-6 rounded-2xl'} transform-gpu`}>
       <div className="flex gap-4">
         <Avatar className="w-10 h-10 flex-shrink-0">
           <AvatarFallback className={`${
@@ -61,7 +61,7 @@ export const ChatMessage = ({ message, onRegenerate, showRegenerate }: ChatMessa
             {isUser ? (
               <p className="text-base leading-relaxed font-medium">{message.content}</p>
             ) : (
-              <div className="prose prose-slate max-w-none">
+              <div className="prose prose-slate max-w-none transition-all duration-100 ease-out">
                 <ReactMarkdown
                   components={{
                     p: ({ children }) => <p className="mb-4 last:mb-0 text-base leading-relaxed text-slate-800">{children}</p>,

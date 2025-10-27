@@ -10,9 +10,24 @@ interface ChatInterfaceProps {
   onMessagesChange?: (messages: Message[]) => void;
 }
 
+const HR_QUESTIONS = [
+  "What kind of projects does Hitesh work on?",
+  "Can you tell me more about Hitesh's expertise?", 
+  "What are some recent developments or updates from Hitesh?",
+  "What programming languages is Hitesh proficient in?",
+  "How many years of experience does Hitesh have in AI/ML?",
+  "What are Hitesh's strongest technical skills?",
+  "Can you describe Hitesh's educational background?",
+  "What machine learning frameworks has Hitesh worked with?",
+  "What are some notable achievements in Hitesh's career?",
+  "What type of AI models has Hitesh developed?",
+];
+
 export const ChatInterface = ({ initialMessages = [], onMessagesChange }: ChatInterfaceProps) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const lastUpdateRef = useRef<number>(0);
+  const lastContentRef = useRef<string>('');
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -21,27 +36,16 @@ export const ChatInterface = ({ initialMessages = [], onMessagesChange }: ChatIn
   const isUserScrollingRef = useRef<boolean>(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const allHRQuestions = [
-    "What kind of projects does Hitesh work on?",
-    "Can you tell me more about Hitesh's expertise?",
-    "What are some recent developments or updates from Hitesh?",
-    "What programming languages is Hitesh proficient in?",
-    "How many years of experience does Hitesh have in AI/ML?",
-    "What are Hitesh's strongest technical skills?",
-    "Can you describe Hitesh's educational background?",
-    "What machine learning frameworks has Hitesh worked with?",
-    "What are some notable achievements in Hitesh's career?",
-    "What type of AI models has Hitesh developed?",
-  ];
 
-  const generateRandomQuestions = () => {
-    const shuffled = [...allHRQuestions].sort(() => 0.5 - Math.random());
+
+  const generateRandomQuestions = useCallback(() => {
+    const shuffled = [...HR_QUESTIONS].sort(() => 0.5 - Math.random());
     setCurrentQuestions(shuffled.slice(0, 3));
-  };
+  }, []);
 
   useEffect(() => {
     generateRandomQuestions();
-  }, []);
+  }, [generateRandomQuestions]);
 
   useEffect(() => {
     setMessages(initialMessages);
@@ -76,13 +80,28 @@ export const ChatInterface = ({ initialMessages = [], onMessagesChange }: ChatIn
   }, [messages, scrollToBottom]);
 
   const updateStreamingMessage = useCallback((messageId: string, content: string) => {
-    setMessages(prev => 
-      prev.map(msg => 
-        msg.id === messageId 
-          ? { ...msg, content }
-          : msg
-      )
-    );
+    // Avoid unnecessary updates if content hasn't changed
+    if (content === lastContentRef.current) {
+      return;
+    }
+    lastContentRef.current = content;
+    
+    // Use requestAnimationFrame for smoother updates
+    requestAnimationFrame(() => {
+      const now = Date.now();
+      if (now - lastUpdateRef.current < 16) { // ~60fps
+        return;
+      }
+      lastUpdateRef.current = now;
+      
+      setMessages(prev => 
+        prev.map(msg => 
+          msg.id === messageId 
+            ? { ...msg, content }
+            : msg
+        )
+      );
+    });
   }, []);
 
   const sendMessage = async (messageContent: string, isRegenerate = false, messageToRegenerate?: string) => {
@@ -142,6 +161,8 @@ export const ChatInterface = ({ initialMessages = [], onMessagesChange }: ChatIn
         content: ''
       };
 
+      // Reset content reference for new message
+      lastContentRef.current = '';
       setMessages(prev => [...prev, assistantMessage]);
 
       const decoder = new TextDecoder();
